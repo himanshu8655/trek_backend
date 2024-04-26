@@ -35,6 +35,10 @@ public class TrekDetailsPojo {
 		return id;
 	}
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTrek_name() {
 		return trek_name;
 	}
@@ -71,6 +75,15 @@ public class TrekDetailsPojo {
 		this.trek_name = trek_name;
 		this.trek_detail = trek_detail;
 	}
+
+	public TrekDetailsPojo(Long id, String trek_name, String trek_detail, String img_url, byte[] img) {
+		this.id = id;
+		this.trek_name = trek_name;
+		this.trek_detail = trek_detail;
+		this.img_url = img_url;
+		this.img = img;
+	}
+	
 
 	
 

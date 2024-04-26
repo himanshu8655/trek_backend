@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,6 +40,16 @@ public class TrekController {
 	@GetMapping("/trek/img/{id}")
 	public ResponseEntity<byte[]> getImg(@PathVariable Long id) {
 		return trek_service.getImage(id);
+	}
+	
+	@PutMapping("/trek")
+	public ResponseEntity<MessageModel> editTrek(@RequestParam MultipartFile file,@ModelAttribute TrekDetailsPojo trek){
+	
+		return trek_service.editTrek(trek,file);
+	}
+	@GetMapping("/trek/{id}")
+	public ResponseEntity getTrekById(@PathVariable Long id) {
+		return trek_service.getTrekById(id);
 	}
 }
 

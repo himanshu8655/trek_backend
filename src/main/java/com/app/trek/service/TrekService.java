@@ -42,7 +42,6 @@ public class TrekService {
 	}
 
 	public ResponseEntity<MessageModel> add(@ModelAttribute TrekDetailsPojo trek, MultipartFile file) {
-		MessageModel msg;
 		if (file == null || file.getSize() == 0) {
 			return getResponseEntity("File is empty!", HttpStatus.BAD_REQUEST);
 		}
@@ -99,7 +98,7 @@ public class TrekService {
 		return new ResponseEntity<MessageModel>(new MessageModel(msg), code);
 	}
 
-	public  String getBaseUrl() {
+	public String getBaseUrl() {
 		String url = request.getRequestURL().toString();
 		String baseUrl = url.replace(request.getServletPath(), "");
 		return baseUrl;
